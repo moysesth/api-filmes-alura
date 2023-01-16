@@ -21,8 +21,16 @@ public class FilmeController : ControllerBase
         _mapper = mapper;
     }
 
-    //Adicionar Filme via Post
+    //Adicionar Filme via Post + Documentação API
+
+    /// <summary>
+    /// Adiciona um filme ao banco de dados
+    /// </summary>
+    /// <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="201">Caso inserção seja feita com sucesso</response>
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     public IActionResult AdicionaFilme([FromBody] CreateFilmeDto filmeDto)
     {
         Filme filme = _mapper.Map<Filme>(filmeDto);
@@ -35,6 +43,11 @@ public class FilmeController : ControllerBase
 
 
     //Leitura da lista dos filmes
+
+    /// <summary>
+    /// Busca a lista de filmes no banco de dados
+    /// </summary>
+    /// <returns>IActionResult</returns>
     [HttpGet]
     public IEnumerable<ReadFilmeDto> RecuperaFilmes([FromQuery] int skip = 0,
                                              [FromQuery] int take = 50)
@@ -43,6 +56,10 @@ public class FilmeController : ControllerBase
     }
 
     //Leitura dentro da lista dos filmes por ID
+
+    /// <summary>
+    /// Busca um filme pelo ID no banco de dados
+    /// </summary>
     [HttpGet("{id}")]
     public IActionResult RecuperaFilmePorId(int id)
     {
@@ -53,6 +70,10 @@ public class FilmeController : ControllerBase
     }
 
     //Alteração de informações nos filmes
+
+    /// <summary>
+    /// Alteração de uma inserção no banco de dados
+    /// </summary>
     [HttpPut("{id}")]
     public IActionResult AtualizaFilme(int id, [FromBody] UpdateFilmeDto filmeDto)
     {
@@ -65,6 +86,10 @@ public class FilmeController : ControllerBase
     }
 
     //Alterar dados 'individuais' na consulta
+
+    /// <summary>
+    /// Alterar dado individual de um filme no banco de dados
+    /// </summary>
     [HttpPatch("{id}")]
     public IActionResult AtualizaFilmeParcial(int id, JsonPatchDocument<UpdateFilmeDto> patch)
     {
@@ -84,6 +109,10 @@ public class FilmeController : ControllerBase
     }
 
     //Deletar item na base
+
+    /// <summary>
+    /// Apagar um filme do banco de dados
+    /// </summary>
     [HttpDelete("{id}")]
     public IActionResult DeletaFilme(int id)
     {
