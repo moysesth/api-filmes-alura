@@ -5,7 +5,7 @@ Desenvolvido no curso .Net 6: criando uma web API, da Alura
 | :placard: Alura Filmes |     |
 | -------------  | --- |
 | :sparkles: Nome        | **Alura Filmes**
-| :label: Tecnologias | java, html, ruby, c# (tecnologias utilizadas)
+| :label: Tecnologias | .Net, c#
 | :rocket: URL         | https://url-deploy.com.br
 | :fire: Desafio     | https://url-do-desafio.com.br
 
